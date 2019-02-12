@@ -41,7 +41,10 @@ dan1i = pygame.image.load("dan1.png")
 dan2i = pygame.image.load("dan2.png")
 dan3i = pygame.image.load("dan3.png")
 dan4i = pygame.image.load("dan4.png")
-
+dan5i = pygame.image.load("dan5.png")
+dan6i = pygame.image.load("dan6.png")
+dan7i = pygame.image.load("dan7.png")
+dan8i = pygame.image.load("dan8.png")
 # bullet0 = base_sprite(image = bulleti, xk = x, yk = y)
 
 potatoFace = base_sprite(image = potatoFacei, x = x, y = y)
@@ -50,7 +53,11 @@ dan1 = base_sprite(image = dan1i, x = randint(0,(1000-104)), y = 0)
 dan2 = base_sprite(image = dan2i, x = randint(0,(1000-105)), y = 0)
 dan3 = base_sprite(image = dan3i, x = randint(0,(1000-105)), y = 0)
 dan4 = base_sprite(image = dan4i, x = randint(0,(1000-105)), y = 0)
-danials = [dan1, dan2, dan3, dan4]
+dan5 = base_sprite(image = dan5i, x = randint(0,(1000-105)), y = 0)
+dan6 = base_sprite(image = dan6i, x = randint(0,(1000-105)), y = 0)
+dan7 = base_sprite(image = dan7i, x = randint(0,(1000-105)), y = 0)
+dan8 = base_sprite(image = dan8i, x = randint(0,(1000-105)), y = 0)
+danials = [dan1, dan2, dan3, dan4, dan5, dan6, dan7]
 
 home = pygame.sprite.Group()
 badGuys = pygame.sprite.Group()
@@ -106,7 +113,7 @@ while running:
                         if (event.key == pygame.K_z):
                             if len(fire) < 15:
                                     num = len(fire)
-                                    fire.add(Bullet(potatoFace.rect.x,potatoFace.rect.y))
+                                    fire.add(Bullet((potatoFace.rect.x+55),potatoFace.rect.y+35))
 
 
 
@@ -122,7 +129,7 @@ while running:
                                 yplus = False
 
     #enemies
-    thisDan = danials[randint(0,3)]
+    thisDan = danials[randint(0,(len(danials)-1))]
     if len(badGuys) < 4 and randint(1,70) == 4:
         badGuys.add(thisDan)
     for i in badGuys:
